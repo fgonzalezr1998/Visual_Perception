@@ -25,6 +25,7 @@ private:
 public:
   pdAlgorithm()
   {
+    addDependency("Person_Followed_Publisher");
     sub_ = n_.subscribe("/person_followed_data", 1, &pdAlgorithm::cb, this);
     info_sub_ = n_.subscribe("/camera/rgb/camera_info", 1, &pdAlgorithm::cb_info, this);
     speed_pub_ = n_.advertise<geometry_msgs::Twist>("/mobile_base/commands/velocity", 1);
